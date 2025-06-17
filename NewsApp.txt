@@ -1,0 +1,4 @@
+This is the NewsApp Project.
+This is going to be a backend-focused web application using Node.js, Express.js & PostgreSQL.
+
+More information soon...
