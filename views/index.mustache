@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{> header}}
+    <title>Articles</title>
+</head>
+<body>
+    {{> navbar}}<br>
+        {{#message}}
+        <div class="alert alert-warning" role="alert">
+            <a href = "/login">Login</a> to add articles
+        </div>
+    {{/message}}
+    <div class="list-group">
+        {{# articles}}
+        <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">{{title}}</h5>
+        </div>
+        <p class="mb-1">{{body}}</p>
+        {{/articles}}
+    </div>
+    {{> footer}}
+</body>
+</html>

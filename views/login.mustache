@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{> header}}
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+    {{> navbar}}
+    <br><h2>Login</h2><br>
+    <form action="/login", method="POST">
+    <div class="mb-3">
+        <label for="exampleInputEmail1">User Name</label>
+        <input type="text" name="username" class="form-control" placeholder="Enter user name">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" name="password" class="form-control" placeholder="Password">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <br><br>
+    {{#message1}}
+        <div class="alert alert-danger" role="alert">
+            {{message1}}
+        </div>
+    {{/message1}}
+    </form>
+    {{#message2}}
+        <div class="alert alert-danger" role="alert">
+            {{message2}}<br>
+            <a href="/register">Register</a>
+        </div>
+    {{/message2}}
+    </form>
+    </div>
+    {{> footer}}
+</body>
+</html>

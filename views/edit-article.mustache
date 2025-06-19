@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{> header}}
+    <title>Edit Article</title>
+</head>
+<body>
+    <div class="container">
+    {{> navbar}}
+    <br><h2>Edit Article</h2><br>
+    <form action="/{{username}}/update-article" method="POST">
+    <div class="mb-3">
+        <label for="exampleInputEmail1">Title</label>
+        <input type="text" name="title" class="form-control" value="{{title}}" />
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1">Description</label>
+        <textarea name="description" class="form-control">
+        {{body}}
+        </textarea>
+        <input type="hidden" name="articleid" value="{{articleid}}"/>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+    {{> footer}}
+    </body>
+</html>

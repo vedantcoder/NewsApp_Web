@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {{> header}}
+    <title>Add Article</title>
+</head>
+<body>
+    <div class="container">
+    {{> navbar}}
+    <br><h2>Add an Article</h2><br>
+    <form action="/{{username}}/add-article" method="POST">
+    <div class="mb-3">
+        <label for="exampleInputEmail1">Title</label>
+        <input type="text" name="title" class="form-control" placeholder="Title">
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputEmail1">Description</label>
+        <textarea name="description" class="form-control" placeholder="Description..."></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+    {{> footer}}
+    </body>
+</html>
