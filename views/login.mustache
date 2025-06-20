@@ -5,9 +5,16 @@
     <title>Login</title>
 </head>
 <body>
+      <div class="page-container">
+    <div class="content-wrap">
     <div class="container">
     {{> navbar}}
     <br><h2>Login</h2><br>
+    {{#message}}
+        <div class="alert alert-warning" role="alert">
+            <a href = "/login">Login</a> to view/post your articles!
+        </div>
+    {{/message}}
     <form action="/login", method="POST">
     <div class="mb-3">
         <label for="exampleInputEmail1">User Name</label>
@@ -33,6 +40,8 @@
     {{/message2}}
     </form>
     </div>
+    </div>
     {{> footer}}
+    </div>
 </body>
 </html>

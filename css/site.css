@@ -1,3 +1,27 @@
-.article-action-buttons{
+.article-action-buttons {
     display: flex;
+}
+
+/* Sticky footer layout setup */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.page-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.content-wrap {
+    flex: 1;
+}
+
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 1rem;
+    background: #f2f2f2;
 }

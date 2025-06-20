@@ -5,32 +5,39 @@
     <title>{{username}}'s articles</title>
 </head>
 <body>
-    {{> navbar}}<br>
-    {{#message}}
-        <div class="alert alert-success" role="alert">
-            {{message}}
-        </div>
-    {{/message}}
-    <div class="list-group">
-        {{# articles}}
+  <div class="page-container">
+    <div class="content-wrap">
+            <div class="container">
+      {{> navbar}}<br>
+      
+      {{#message}}
+      <div class="alert alert-success" role="alert">
+          {{message}}
+      </div>
+      {{/message}}
+      
+      <div class="list-group">
+        {{#articles}}
         <div class="d-flex w-100 justify-content-between">
-        <h5 class="mb-1">{{title}}</h5>
+          <h5 class="mb-1">{{title}}</h5>
         </div>
         <p class="mb-1">{{body}}</p>
-    <div class="article-action-buttons">
-    <a href = "/{{username}}/articles/edit/{{articleid}}">
-        <button type="button" class="btn btn-warning">Edit</button>
-    </a>
-    <h1>ㅤ</h1>
-    <form action="/{{username}}/delete-article" method="POST">
-
-        <input type="hidden" name="articleid" value="{{articleid}}"/>
-
-    <button type="submit" class="btn btn-danger">Delete</button>
-    </form>
-    </div>
+        
+        <div class="article-action-buttons">
+          <a href="/{{username}}/articles/edit/{{articleid}}">
+            <button type="button" class="btn btn-warning">Edit</button>
+          </a>
+          <div style="width: 1rem;"></div> <!-- spacing instead of <h1>ㅤ</h1> -->
+          <form action="/{{username}}/delete-article" method="POST">
+            <input type="hidden" name="articleid" value="{{articleid}}"/>
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
         {{/articles}}
+      </div>
     </div>
+</div>
     {{> footer}}
+  </div>
 </body>
 </html>
