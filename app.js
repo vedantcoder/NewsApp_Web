@@ -1,3 +1,4 @@
+require('dotenv').config(); // load .env values
 const express = require('express');
 const mustacheExpress = require('mustache-express');
 const bodyParser = require('body-parser');
@@ -16,8 +17,9 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 //setting up pg-promise for PostgreSQL Database
-const connection_string =  "postgres://postgres:vedant123@localhost:5432/newsdb";
-db = pg(connection_string);
+// Use environment variable for the connection string
+const connection_string = process.env.DATABASE_URL;
+const db = pg(connection_string);
 
 //configuring view engine
 const VIEWS_PATH = path.join(__dirname, '/views')
