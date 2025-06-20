@@ -10,7 +10,7 @@ const indexRoutes = require('./routes/index');
 const checkAuth = require('./utils/checkAuth');
 
 //setting up port
-const PORT = 3000;
+const PORT = process.env.PORT || 8080;
 
 //creating app
 const app = express();
