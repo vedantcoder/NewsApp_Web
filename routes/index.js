@@ -94,4 +94,9 @@ router.get('/logout', (req,res,next) => {
     }
 })
 
+//hello - (test)
+router.get('/hello', (req,res,next) => {
+    res.send("Hello World");
+})
+
 module.exports = router;
