@@ -1,13 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
-const pg = require('pg-promise')();
 const bodyParser = require('body-parser');
-
-//setting up pg-promise for PostgreSQL Database
-// Use environment variable for the connection string
-const connection_string = process.env.DATABASE_URL;
-const db = pg(connection_string);
 
 //bodyparser
 router.use(bodyParser.urlencoded({extended: false}));

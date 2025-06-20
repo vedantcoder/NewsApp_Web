@@ -19,7 +19,7 @@ const app = express();
 //setting up pg-promise for PostgreSQL Database
 // Use environment variable for the connection string
 const connection_string = process.env.DATABASE_URL;
-const db = pg(connection_string);
+db = pg(connection_string);
 
 //configuring view engine
 const VIEWS_PATH = path.join(__dirname, '/views')
