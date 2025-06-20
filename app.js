@@ -11,7 +11,7 @@ const indexRoutes = require('./routes/index');
 const checkAuth = require('./utils/checkAuth');
 
 //setting up port
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 
 //creating app
 const app = express();
