@@ -8,6 +8,7 @@ router.use(bodyParser.urlencoded({extended: false}));
 
 //user articles
 router.get('/:user/articles', (req,res) => {
+    if(req.session.user){
     if(req.params.user===req.session.user.username){
         let userid = req.session.user.userid;
         const message = req.query.message;
@@ -19,11 +20,18 @@ router.get('/:user/articles', (req,res) => {
     }
     else   
         res.render('login', {message1: `Login to access ${req.params.user}'s articles`});
+    }
+    else{
+        res.redirect('/login');
+    }
 }) 
 
 //add article
 router.get('/:user/add-article', (req,res) => {
-    res.render('add-article');
+    if(req.session.user.username)
+        res.render('add-article');
+    else
+        res.redirect('/login');
 })
 router.post('/:user/add-article', (req,res) =>{
     let title = req.body.title;
@@ -32,7 +40,7 @@ router.post('/:user/add-article', (req,res) =>{
 
     db.none('INSERT INTO articles (title, body, userid) VALUES ($1, $2, $3)', [title, description, userid])
     .then(() => {
-        res.send("SUCCESS");
+        res.redirect(`/${req.session.user.username}/articles?message=Article+Added`);
     });
 })
 

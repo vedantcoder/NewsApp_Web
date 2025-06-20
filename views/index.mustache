@@ -5,26 +5,32 @@
     <title>Articles</title>
 </head>
 <body>
-  <div class="page-container">
-    <div class="content-wrap">
-      <div class="container">
-        {{> navbar}}<br>
-        <div class="list-group">
-            {{#articles}}
+  <div class="page-container d-flex flex-column min-vh-100">
+    {{> navbar}}
+
+    <div class="content-wrap flex-grow-1">
+      <div class="container py-4">
+        <h2 class="mb-4 text-center">All Articles</h2>
+
+        {{#articles}}
+        <div class="card mb-3 shadow-sm">
+          <div class="card-body">
             <div class="d-flex w-100 justify-content-between">
-              <h5 class="mb-1">{{title}}</h5>
+              <h5 class="card-title mb-1">{{title}}</h5>
             </div>
-            <p class="mb-1">{{body}}</p>
-            {{/articles}}
+            <div class="mb-1 rich-article">{{{body}}}</div>
+          </div>
         </div>
-        <br><br><br>
+        {{/articles}}
+
         {{#message}}
-        <div class="alert alert-warning" role="alert">
-          <a href="/login">Login</a> to add your own articles!
+        <div class="alert alert-warning text-center mt-4" role="alert">
+          <a href="/login" class="alert-link">Login</a> to add your own articles!
         </div>
         {{/message}}
       </div>
     </div>
+
     {{> footer}}
   </div>
 </body>

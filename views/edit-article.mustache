@@ -5,28 +5,50 @@
     <title>Edit Article</title>
 </head>
 <body>
-  <div class="page-container">
-    <div class="content-wrap">
-    <div class="container">
-    {{> navbar}}
-    <br><h2>Edit Article</h2><br>
-    <form action="/{{username}}/update-article" method="POST">
-    <div class="mb-3">
-        <label for="exampleInputEmail1">Title</label>
-        <input type="text" name="title" class="form-control" value="{{title}}" />
+  <div class="page-container d-flex flex-column min-vh-100">
+
+    <div class="w-100">
+      {{> navbar}}
     </div>
-    <div class="mb-3">
-        <label for="exampleInputEmail1">Description</label>
-        <textarea name="description" class="form-control">
-        {{body}}
-        </textarea>
-        <input type="hidden" name="articleid" value="{{articleid}}"/>
+
+    <div class="content-wrap flex-grow-1">
+      <div class="container py-4" style="max-width: 600px;">
+        <h2 class="text-center mb-4">Edit Article</h2>
+
+        <form action="/{{username}}/update-article" method="POST" onsubmit="return prepareEditorData()" class="p-4 shadow-sm border rounded bg-light">
+          <div class="mb-3">
+            <label class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" value="{{title}}" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Description</label>
+            <div id="editor" style="height: 200px;"></div>
+            <input type="hidden" name="description" id="description">
+            <input type="hidden" name="articleid" value="{{articleid}}" />
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+        </form>
+      </div>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
-    </div>
-    </div>
+
     {{> footer}}
-    </div>
-    </body>
+
+    <script>
+      const quill = new Quill('#editor', {
+        theme: 'snow'
+      });
+
+      document.addEventListener('DOMContentLoaded', function () {
+        const html = `{{{body}}}`;
+        quill.root.innerHTML = html.trim();
+      });
+
+      function prepareEditorData() {
+        const html = quill.root.innerHTML.trim();
+        document.getElementById('description').value = html;
+        return true;
+      }
+    </script>
+  </div>
+</body>
 </html>

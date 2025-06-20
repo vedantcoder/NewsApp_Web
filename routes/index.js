@@ -46,6 +46,7 @@ router.get('/login', (req,res) => {
 router.post('/login', (req,res) => {
     let username = req.body.username;
     let password = req.body.password;
+    const message = req.query.message;
 
     db.oneOrNone('SELECT userid, username, password FROM users where username = $1', [username])
     .then((user) => {

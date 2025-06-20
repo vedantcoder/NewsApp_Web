@@ -25,3 +25,9 @@ footer {
     padding: 1rem;
     background: #f2f2f2;
 }
+
+.ql-editor p:has(br:only-child),
+.rich-article p:has(br:only-child) {
+  margin-bottom: 0.2rem;
+  line-height: 1;
+}

@@ -5,32 +5,35 @@
     <title>Register</title>
 </head>
 <body>
-  <div class="page-container">
-    <div class="content-wrap">
-    <div class="container">
+  <div class="page-container d-flex flex-column min-vh-100">
     {{> navbar}}
-    <br><h2>Register</h2><br>
-    <form action="/register", method="POST">
-    <div class="mb-3">
-        <label for="exampleInputEmail1">User Name</label>
-        <input type="text" name="username" class="form-control" placeholder="Enter user name">
-        <div id="emailHelp" class="form-text">(max chars: 10)</div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" name="password" class="form-control" placeholder="Password">
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <br><br>
-    {{#message}}
-        <div class="alert alert-danger" role="alert">
+
+    <div class="content-wrap flex-grow-1">
+      <div class="container py-4" style="max-width: 500px;">
+        <h2 class="mb-4 text-center">Register</h2>
+
+        <form action="/register" method="POST" class="shadow-sm p-4 border rounded bg-light">
+          <div class="mb-3">
+            <label class="form-label">User Name</label>
+            <input type="text" name="username" class="form-control" placeholder="Enter user name">
+            <div class="form-text">(max chars: 10)</div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" name="password" class="form-control" placeholder="Password">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Submit</button>
+
+          {{#message}}
+          <div class="alert alert-danger mt-3" role="alert">
             {{message}}
-        </div>
-    {{/message}}
-    </form>
+          </div>
+          {{/message}}
+        </form>
+      </div>
     </div>
-    </div>
+
     {{> footer}}
-    </div>
-    </body>
+  </div>
+</body>
 </html>
